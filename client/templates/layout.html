@@ -2,6 +2,9 @@
   <header>
     {{> nav }}
   </header>
-  {{> yield}}
+
+  {{#if currentUser}}
+    {{> yield}}
+  {{/if}}
 </template>
 

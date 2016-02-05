@@ -7,8 +7,8 @@
         <h5>{{ location.lat }}</h5>
         <h5>{{ location.lng }}</h5>
         <a href="/pickup/{{_id}}"><p>See on map</p></a>
-        <button class="en-route">On it</button>
-        <button class="done">Done</button>
+        <button class="btn btn-default en-route">On it</button>
+        <button class="btn btn-default done">Done</button>
         {{#if driver_id}}
           <h6>{{ driver_FN }} {{ driver_LN }} is picking this person up.</h6>
         {{/if}}
