@@ -38,8 +38,8 @@ Template.map2.helpers({
 Template.map2.onCreated(function() {  
   GoogleMaps.ready('map', function(map) {
 
-    var driverIcon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FE7569")
-    var pickupIcon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|00FFFF")
+    var driverIcon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FE7569");
+    var pickupIcon = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|00FFFF");
     var latLng = Geolocation.latLng();
 
     var pickup = new google.maps.Marker({
