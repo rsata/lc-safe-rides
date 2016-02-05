@@ -1,0 +1,23 @@
+<template name="driver">
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Admin Panel</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <ul>
+          {{#each alerts}}
+            {{>alert}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+
+
+</template>

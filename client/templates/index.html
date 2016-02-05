@@ -1,0 +1,46 @@
+<template name="index">
+
+  <div class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Project name</a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {{> loginButtons}}
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">  
+
+    {{#if currentUser}}
+
+    <div class="row">
+      <div class="col-sm-12">
+        <button id="alert-button">Alert</button>
+      </div>
+    </div>
+
+    {{#if driverEnRoute}}
+    <div class="row">
+      <div class="col-sm-12">
+        <h3>{{ driverEnRoute.driver_FN }} {{ driverEnRoute.driver_LN }} is coming to get you.</h3>
+        <h3>If you need to move from your current location, keep pressing alert and the driver will get your most up-to-date location.</h3>
+      </div>
+    </div>
+    {{/if}}
+
+    {{/if}}
+    <!-- /container -->
+  </div>
+
+</template>

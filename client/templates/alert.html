@@ -1,0 +1,20 @@
+<template name="alert">
+
+  <li class="alert-item">
+    <div class="row">
+      <div class="col-xs-11 col-xs-offset-1">
+        <h3>{{ FN }} {{ LN }}</h3>
+        <h5>{{ location.lat }}</h5>
+        <h5>{{ location.lng }}</h5>
+        <a href="/pickup/{{_id}}"><p>See on map</p></a>
+        <button class="en-route">On it</button>
+        <button class="done">Done</button>
+        {{#if driver_id}}
+          <h6>{{ driver_FN }} {{ driver_LN }} is picking this person up.</h6>
+        {{/if}}
+      </div>
+    </div>
+    
+  </li>
+  
+</template>
