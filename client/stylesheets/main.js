@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-  console.log('jquery loaded')
-
   // var timeout = 0;
   // var holdDown;
 
