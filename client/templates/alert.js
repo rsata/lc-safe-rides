@@ -25,6 +25,10 @@ Template.alert.events({
   'click .done': function () {
     id = this._id;
     Meteor.call('pickupDone', id);
+  },
+
+  'click a#seeOnMap': function () {
+    Session.set('pickupLatLng', this.location);
   }
 
 });

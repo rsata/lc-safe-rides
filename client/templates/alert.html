@@ -6,7 +6,7 @@
         <h3>{{ FN }} {{ LN }}</h3>
         <h5>{{ location.lat }}</h5>
         <h5>{{ location.lng }}</h5>
-        <a href="/pickup/{{_id}}"><p>See on map</p></a>
+        <a id="seeOnMap" href="/pickup/{{_id}}"><p>See on map</p></a>
         <button class="btn btn-default en-route">On it</button>
         <button class="btn btn-default done">Done</button>
         {{#if driver_id}}

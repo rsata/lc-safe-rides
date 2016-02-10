@@ -22,7 +22,7 @@ Template.index.onRendered(function() {
   //   var marker;
 
     // Create and move the marker when latLng changes.
-    Tracker.autorun(function(updateLoc) {
+    self.autorun(function(updateLoc) {
       var latLng = Geolocation.latLng();
       if (! latLng)
         return;
