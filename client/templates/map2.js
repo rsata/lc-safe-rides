@@ -339,7 +339,7 @@ Template.map2.onCreated(function() {
 
       // Center and zoom the map view onto the current position.
       map.instance.setCenter(driverMarker.getPosition());
-      map.instance.setZoom(MAP_ZOOM);
+      // map.instance.setZoom(MAP_ZOOM);
     });
 });
 });
