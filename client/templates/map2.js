@@ -240,6 +240,11 @@ Template.map2.helpers({
 
     //pickup location
     var pickupLatLng = Session.get('pickupLatLng');
+    console.log(pickupLatLng);
+
+    if (!pickupLatLng) {
+      Router.go('/driver');
+    }
 
     //var latLng = Pickup.findOne({_id:this.data});
     // Initialize the map once we have the latLng.
