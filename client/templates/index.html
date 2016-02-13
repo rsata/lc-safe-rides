@@ -12,37 +12,32 @@
 
   <div class="isLoaded hide">
 
-      <div class="map-container-home">
-        {{#unless geolocationError}}
-        {{> googleMap name="map" options=mapOptions}}
-        {{else}}
-        Geolocation failed: {{geolocationError}}
-        {{/unless}}
-      </div>
-
-
-    <div class="container"> 
-
-      {{#if driverEnRoute}}
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 driver-message animated slideInLeft">
-          <h3>{{ driverEnRoute.driver_FN }} {{ driverEnRoute.driver_LN }} will be there shortly.</h3>
-          <h3>If you need to move from your current location, keep pressing alert and the driver will get your most up-to-date location.</h3>        
-        </div>
-      </div>
-      {{/if}}
-
-      <div class="row">
-        <div class="alert-button-wrapper">
-          <button id="alert-button">Alert</button>
-        </div>
-      </div>
-
-      
-
+    <div class="map-container-home">
+      {{#unless geolocationError}}
+      {{> googleMap name="map" options=mapOptions}}
+      {{else}}
+      Geolocation failed: {{geolocationError}}
+      {{/unless}}
     </div>
 
-    <!-- /container -->
+
+
+    {{#if driverEnRoute}}
+    <div class="driver-message animated slideInLeft">
+      <h3>{{ driverEnRoute.driver_FN }} {{ driverEnRoute.driver_LN }} will be there shortly.</h3>
+      <h3>If you need to move from your current location, keep pressing alert and the driver will get your most up-to-date location.</h3>        
+    </div>
+    {{/if}}
+
+    <div class="row">
+      <div class="alert-button-wrapper">
+        <button id="alert-button">Alert</button>
+      </div>
+    </div>
+
+    
+
   </div>
+
 
 </template>
