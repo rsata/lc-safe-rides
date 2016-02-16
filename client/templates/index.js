@@ -52,6 +52,20 @@ Template.index.onCreated(function() {
       position: new google.maps.LatLng(latLng.lat, latLng.lng),
       map: map.instance,      
     });
+    
+    if (! marker) {
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(latLng.lat, latLng.lng),
+          map: map.instance,
+        });
+      }
+      // The driver marker already exists, so we'll just change its position.
+      else {
+        marker.setPosition(latLng);
+      }
+
+    
+
   });
 });
 
@@ -128,7 +142,7 @@ Template.index.events({
     Meteor.call('alert', lat, lng);
     console.log(lat);
     console.log(lng);
-    $('#alert-button').animate({ bottom: '80vh' }, {duration: 1000, easing:'easeInOutCubic'});
+    //$('.alert-button-wrapper').animate({ bottom: '20vh' }, {duration: 1000, easing:'easeInOutCubic'});
     
      function flash() {
        $('#alert-button').animate({opacity:'1'}, 500);

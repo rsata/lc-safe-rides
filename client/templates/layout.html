@@ -4,10 +4,16 @@
   </header>
 
   {{#if currentUser}}
-    {{> yield}}
+  {{> yield}}
   {{else}}
-  <div class="container">
-    <h1 class="text-center">Please login to get started.</h1>
+  <div id="home" class="container">
+    <div class="vert-container">
+      <div class="vert">
+        <img src="./images/logo.png" alt="Carma Logo">
+        <h1 class="text-center">Please login to get started.</h1>
+        {{>login}}
+      </div>
+    </div>
   </div>
   {{/if}}
 
