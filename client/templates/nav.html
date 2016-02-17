@@ -8,10 +8,10 @@
 
       <div id="navigation" class="hide">
         <ul class="navigation-list">
-          <li class="navigation-item"><a href="/">Home</a></li>
-          <li class="navigation-item"><a href="/driver">Driver</a></li>
+          <a class="nav-menu-item" href="/"><li class="navigation-item">Home</li></a>
+          <a class="nav-menu-item" href="/driver"><li class="navigation-item">Driver</li></a>
           {{#if currentUser}}
-          <li id="logout" class="navigation-item"><a href="#">Logout</a></li>
+          <a class="nav-menu-item" href="#"><li id="logout" class="navigation-item">Logout</li></a>
           <!-- {{else}}
           <li class="navigation-item"><a href="/login">Login/Create Account</a></li> -->
           {{/if}}
