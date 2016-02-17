@@ -6,17 +6,18 @@
         <span id="menuX" class="glyphicon glyphicon-remove hide"></span>
       </button>
 
-      <div id="navigation" class="">
+      <div id="navigation" class="hide">
         <ul class="navigation-list">
           <li class="navigation-item"><a href="/">Home</a></li>
           <li class="navigation-item"><a href="/driver">Driver</a></li>
           {{#if currentUser}}
           <li id="logout" class="navigation-item"><a href="#">Logout</a></li>
-          {{else}}
-          <li class="navigation-item"><a href="/login">Login/Create Account</a></li>
+          <!-- {{else}}
+          <li class="navigation-item"><a href="/login">Login/Create Account</a></li> -->
           {{/if}}
         </ul>
       </div>
     </div>
 
-</template>
+
+  </template>

@@ -54,19 +54,19 @@ Template.index.onCreated(function() {
     });
     
     if (! marker) {
-        marker = new google.maps.Marker({
-          position: new google.maps.LatLng(latLng.lat, latLng.lng),
-          map: map.instance,
-        });
-      }
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(latLng.lat, latLng.lng),
+        map: map.instance,
+      });
+    }
       // The driver marker already exists, so we'll just change its position.
       else {
         marker.setPosition(latLng);
       }
 
-    
 
-  });
+
+    });
 });
 
 Template.index.onCreated(function() {  
@@ -102,6 +102,16 @@ Template.index.onCreated(function() {
   });
 });
 
+Template.index.onRendered(function(){
+  var nav = $('#navigation');
+  nav.removeClass('show');
+  nav.addClass('hide');
+  $('#menuX').removeClass('show');     
+  $('#menuX').addClass('hide'); 
+  $('#menuLines').removeClass('hide');
+  $('#menuLines').addClass('show');
+});
+
 
 Template.index.helpers({
 
@@ -111,7 +121,10 @@ Template.index.helpers({
 
   driverEnRoute: function () {
     return Pickup.findOne({owner: Meteor.userId(), alert:1, driver: 1});
-    $('.driver-message').addClass('red');
+  },
+
+  driverAlerted: function () {
+    return Pickup.findOne({owner: Meteor.userId(), alert:1});
   },
 
   geolocationError: function() {
@@ -144,11 +157,18 @@ Template.index.events({
     console.log(lng);
     //$('.alert-button-wrapper').animate({ bottom: '20vh' }, {duration: 1000, easing:'easeInOutCubic'});
     
-     function flash() {
-       $('#alert-button').animate({opacity:'1'}, 500);
-       $('#alert-button').animate({opacity:'0.5'}, 500, flash);
-    }
-    flash();
+    $('#alert-button').addClass('flash');
+  },
+
+  'click #cancel-ride': function (e) {
+    e.preventDefault();
+
+    Meteor.call('cancel');
+    $('#alert-button').removeClass('flash');
+  },
+
+  'click #call-ride': function (e) {
+
   },
 });
 

@@ -30,6 +30,11 @@
               <li>
                 <button id="alert-button">Alert</button>
               </li>
+              {{#if driverAlerted}}
+              <li>
+                <button id="cancel-ride" class="alert-options-buttons">Cancel</button>
+              </li>
+              {{/if}}
               {{#if driverEnRoute}}
               <div class="driver-message animated slideInTop">
                 <li>{{ driverEnRoute.driver_FN }} {{ driverEnRoute.driver_LN }} will be there shortly.</li>
@@ -42,12 +47,8 @@
                 </li> -->
               </div>
               <li>
-                <button class="alert-options-buttons">Call</button>
+                <a href="tel:{{ driverEnRoute.driver_phone }}"><button id="call-ride" class="alert-options-buttons">Call</button></a>
               </li>
-              <li>
-                <button class="alert-options-buttons">Cancel</button>
-              </li>
-
               {{/if}}              
             </ul>       
           </div>
