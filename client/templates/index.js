@@ -3,7 +3,6 @@ Meteor.subscribe("current-location");
 
 Template.index.onCreated(function () {
   var loc = Geolocation.latLng();
-  var self = this;
 
   Session.set('loc', false);
 
@@ -32,7 +31,7 @@ Template.index.onCreated(function () {
       // need to do this in other parts that use location
 
     // });
-});
+  });
 });
 
 
@@ -40,9 +39,69 @@ Template.index.onCreated(function () {
 
 var MAP_ZOOM = 15;
 
-Meteor.startup(function() {  
-  GoogleMaps.load();
-});
+// Meteor.startup(function() {  
+//   GoogleMaps.load();
+// });
+
+// //var marker;
+
+// // Template.index.onCreated(function() {  
+// //   GoogleMaps.ready('map', function(map) {
+// //     var latLng = Geolocation.latLng();
+
+// //     marker = new google.maps.Marker({
+// //       position: new google.maps.LatLng(latLng.lat, latLng.lng),
+// //       map: map.instance,      
+// //     });
+    
+// //     // if (! marker) {
+// //     //   var marker = new google.maps.Marker({
+// //     //     position: new google.maps.LatLng(latLng.lat, latLng.lng),
+// //     //     map: map.instance,
+// //     //   })
+// //     //   return marker; 
+// //     // }
+// //     // else {
+// //     //   marker.setPosition(latLng);
+// //     // }
+
+// //   });
+// // });
+
+// Template.index.onCreated(function() {  
+//   var self = this;
+//   Session.set('marker', 0);
+
+//   GoogleMaps.ready('map', function(map) {
+
+//     // Create and move the marker when latLng changes.
+
+//     self.autorun(function() {
+
+//       var latLng = Geolocation.latLng();
+//       if (! latLng)
+//         return;
+
+//       // If the marker doesn't yet exist, create it.
+//       if (! marker && Session.get('marker')!=1) {
+//         var marker = new google.maps.Marker({
+//           position: new google.maps.LatLng(latLng.lat, latLng.lng),
+//           map: map.instance
+//         });
+//         Session.set('marker', 1);
+//       }
+//       // The marker already exists, so we'll just change its position.
+//       else {
+//         marker.setPosition(latLng);
+//       }
+
+//       // Center and zoom the map view onto the current position.
+//       map.instance.setCenter(marker.getPosition());
+//       //map.instance.setZoom(MAP_ZOOM);
+//     });
+//   });
+// });
+
 
 Template.index.onCreated(function() {  
   GoogleMaps.ready('map', function(map) {
@@ -50,23 +109,9 @@ Template.index.onCreated(function() {
 
     var marker = new google.maps.Marker({
       position: new google.maps.LatLng(latLng.lat, latLng.lng),
-      map: map.instance,      
+      map: map.instance
     });
-    
-    if (! marker) {
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(latLng.lat, latLng.lng),
-        map: map.instance,
-      });
-    }
-      // The driver marker already exists, so we'll just change its position.
-      else {
-        marker.setPosition(latLng);
-      }
-
-
-
-    });
+  });
 });
 
 Template.index.onCreated(function() {  
@@ -76,7 +121,7 @@ Template.index.onCreated(function() {
     var marker;
 
     // Create and move the marker when latLng changes.
-
+ 
     self.autorun(function() {
 
       var latLng = Geolocation.latLng();

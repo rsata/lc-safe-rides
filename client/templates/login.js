@@ -25,26 +25,35 @@ Template.login.events({
   'submit form#newUser': function(event, error){
     event.preventDefault();
     var email = $('[name=email]').val(),
-        firstName = $('[name=first_name]').val(),
-        lastName = $('[name=last_name]').val(),
-        password = $('[name=password]').val(),
-        phoneNumber = $('[name=phone_number]').val();
-        car = $('[name=car]').val(),
-    Accounts.createUser({
-      email: email,
-      //username: firstName + '.' + lastName,
-      first_name: firstName,
-      last_name: lastName,
-      password: password,
-      phone_number: phoneNumber,
-      car: car,
-    }, function(error) {
-       if(error){
-        alert(error.reason);
-      } else {
-        Router.go('/');
-      }
-    });
+    firstName = $('[name=first_name]').val(),
+    lastName = $('[name=last_name]').val(),
+    password = $('[name=password]').val(),
+    phoneNumber = $('[name=phone_number]').val();
+    car = $('[name=car]').val();
+    
+    var regex = new RegExp("\@lclark\.edu");
+    var checkEmail = regex.test(email);
+
+    if (checkEmail === false) {
+      alert('Please use your lclark email address to log in.');
+    } else {
+
+      Accounts.createUser({
+        email: email,        
+        first_name: firstName,
+        last_name: lastName,
+        password: password,
+        phone_number: phoneNumber,
+        car: car,
+      }, function(error) {
+        if(error){
+          alert(error.reason);
+        } else {
+          Router.go('/');
+        }
+      });
+    }
+
   },
 
   'click #login-instead': function() {
@@ -53,7 +62,7 @@ Template.login.events({
     $('#login-form').addClass('show');
   },
 
-    'click #register-instead': function() {
+  'click #register-instead': function() {
     $('#login-form').removeClass('show');
     $('#login-form').addClass('hide');
     $('#registration-form').addClass('show');
